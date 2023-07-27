@@ -23,10 +23,11 @@ var totalTimbres =0;
 var descuentoTimbres =0;
 var iva =0;
 var total =0;
+var DeclaracionJurada =0;
 function ValorRNacional (input,cuantia){
     function getRNvalue (inputValue, colones){
         let result = (Math.ceil(inputValue/1000))*colones;
-        if(result<2000){return 2000} 
+        if(result<42603){return 42603} 
         else {return result;}
     };
     if (cuantia==0){return 0};
@@ -47,9 +48,16 @@ function ValorANacional (input, cuantia){
     if(cuantia==3){return 5}
     if(cuantia==4){return value+value}
 };
+function DeclaracionJurada (input, cuantia){
+    let value = 0;
+    if(input>0){value = 60500} else (value = 0);
+    if(cuantia==0){return 0};
+    if(cuantia==1){return value}
+};
 function ValorCAbogados (input,input2,cuantia){
     function getCAValue (inputValue){
         let result = 0;
+        if(inputValue=0){result = 11000};
         if(inputValue<=250000){result = 0};
         if(inputValue>250000){result = 1100};
         if(inputValue>1000000){result = 2200};
@@ -63,7 +71,7 @@ function ValorCAbogados (input,input2,cuantia){
     if(cuantia==0){return 0};
     if(cuantia==1){return getCAValue(input)};
     if(cuantia==2){return 275};
-    if(cuantia==3){return (getCAValue(input)*2)};
+    if(cuantia==3){return getCAValue(input)+getCAValue(input2)};
     if(cuantia==4){return getCAValue(input)+getCAValue(input2)};
 };
 function ValorRPapel (input,pliegos,cuantia){
@@ -142,7 +150,7 @@ function ValorContadores (input,cuantia){
 };
 function ValorCRoja (input, cuantia){
     if (cuantia==0){return 0};
-    if (cuantia==1){return 500}
+    if (cuantia==1){return 1000}
     if (cuantia==2){return 1000}
 };
 function ValorParques (input, cuantia){
@@ -175,6 +183,7 @@ function ValorTraspaso (input,cuantia){
 function ValorHonorarios (input1, input2, input3, cuantia, porcentaje, minimo) {
     function calculo1 (input){
         let total = 0;
+        if(input <= 242000){total = 242000};
         if(input <= 11000000){total = input*2/100};
         if(input > 11000000 && input <= 16500000){total=220000+(input-11000000)*1.5/100}
         if(input >16500000 && input <= 33000000){total=220000+82500+(input-16500000)*1.25/100}
@@ -189,7 +198,7 @@ function ValorHonorarios (input1, input2, input3, cuantia, porcentaje, minimo) {
         return total;
     };
     let result = 0;
-    if (cuantia==0){result = 0};
+    if (cuantia==0){result = 30250};
     if (cuantia==1){
         result = calculo1(input1)*porcentaje/100;
         if (minimo==60500){
