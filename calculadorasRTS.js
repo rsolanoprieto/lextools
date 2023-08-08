@@ -176,15 +176,6 @@ function ValorTraspaso (input,cuantia){
     if (cuantia==1){return (input*2.5)/100};
     if (cuantia==2){return (input*1.5)/100};
 };
-function HonorariosMinimo (cuantia){
-    if (cuantia==0){return 30250};
-    if (cuantia==1){return 60500};
-    if (cuantia==2){return 121000};
-    if (cuantia==3){return 165000};
-    if (cuantia==4){return 181000};
-    if (cuantia==5){return 242000};
-    if (cuantia==6){return 302500};
-};
 function ValorHonorarios (input1, input2, input3, cuantia, porcentaje, minimo) {
     function calculo1 (input){
         let total = 0;
@@ -205,20 +196,14 @@ function ValorHonorarios (input1, input2, input3, cuantia, porcentaje, minimo) {
     if (cuantia==0){result = 0};
     if (cuantia==1){
         result = calculo1(input1)*porcentaje/100;
-        if (minimo==60500){
-            if (result<60500){result = minimo};  
-        }; 
-        if (minimo==121000){
-            if (result<121000){result = minimo};  
-        }; 
+        if (result<minimo){
+            result=minimo;  
+        };
     };
     if (cuantia==2){
         result = calculo2(input1)*porcentaje/100;
-        if (minimo==60500){
-            if (result<60500){result = minimo};  
-        }; 
-        if (minimo==121000){
-            if (result<121000){result = minimo};  
+        if (result<minimo){
+            result=minimo;  
         }; 
     };
     if (cuantia==3){
