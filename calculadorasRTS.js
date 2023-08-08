@@ -196,15 +196,11 @@ function ValorHonorarios (input1, input2, input3, cuantia, porcentaje, minimo) {
     if (cuantia==0){result = 0};
     if (cuantia==1){
         result = calculo1(input1)*porcentaje/100;
-        if (result<minimo){
-            result=minimo;  
-        };
+        if (result<minimo){result = minimo};   
     };
     if (cuantia==2){
         result = calculo2(input1)*porcentaje/100;
-        if (result<minimo){
-            result=minimo;  
-        }; 
+        if (result<minimo){result = minimo};    
     };
     if (cuantia==3){
         result = 60500*porcentaje/100;
