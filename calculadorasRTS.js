@@ -27,7 +27,7 @@ function ValorRNacional (input,cuantia){
     function getRNvalue (inputValue, colones){
         let result = (Math.ceil(inputValue/1000))*colones;
         if(result<2000){return 2000} 
-        else {return result;}
+        else {return result};
     };
     if (cuantia==0){return 0};
     if (cuantia==1){return getRNvalue (input,1)};
