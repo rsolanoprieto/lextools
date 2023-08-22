@@ -47,10 +47,6 @@ function ValorANacional (input, cuantia){
     if(cuantia==3){return 5}
     if(cuantia==4){return value+value}
 };
-function DeclaracionJurada (cuantia){
-    if (cuantia==0){return 0}
-    if (cuantia==1){return 60500}
-};
 function ValorCAbogados (input,input2,cuantia){
     function getCAValue (inputValue){
         let result = 0;
