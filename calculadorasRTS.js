@@ -18,6 +18,7 @@ var Traspaso =0;
 var RLibros =0;
 var Fauna =0;
 var Placa =0;
+var DeclaracionJurada =0;
 var Honorarios =0;
 var totalTimbres =0;
 var descuentoTimbres =0;
